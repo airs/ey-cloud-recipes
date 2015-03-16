@@ -172,3 +172,5 @@ include_recipe "timezone"
 #include_recipe "env_motd"
 
 include_recipe "phantomjs"
+
+include_recipe "ipa-gothic"
