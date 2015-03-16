@@ -2,13 +2,13 @@
 # Cookbook Name:: phantomjs
 # Recipe:: default
 #
-cookbook_file "#{Chef::Config[:file_cache_path]}/phantomjs" do
-  mode 0755
-end
-
-bash "install phantomjs" do
-  code <<-EOF
-    cd #{Chef::Config[:file_cache_path]}
-    cp phantomjs /usr/local/bin/phantomjs
-  EOF
+if ['solo', 'app', 'app_master'].include?(node[:instance_role])
+  remote_file "/usr/local/bin/phantomjs" do
+    owner node[:owner_name]
+    group node[:owner_name]
+    mode 0755
+    source "phantomjs"
+    backup false
+    action :create
+  end
 end

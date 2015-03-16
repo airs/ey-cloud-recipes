@@ -171,6 +171,4 @@ include_recipe "timezone"
 #uncomment to include the motd customization related to the environment
 #include_recipe "env_motd"
 
-if ['app_master', 'app'].include?(node[:instance_role])
-  require_recipe "phantomjs"
-end
+include_recipe "phantomjs"
