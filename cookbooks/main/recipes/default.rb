@@ -172,5 +172,5 @@ include_recipe "timezone"
 #include_recipe "env_motd"
 
 if ['app_master', 'app'].include?(node[:instance_role])
-  include_recipe "phantomjs"
+  require_recipe "phantomjs"
 end
