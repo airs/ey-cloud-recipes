@@ -4,6 +4,6 @@
 #
 if node[:instance_role] == 'app_master'
   execute "update-crontab" do
-    command '/usr/local/bin/bundle exec whenever --update-crontab'
+    command 'cd /data/amaten_production/current && /usr/local/bin/bundle exec whenever --update-crontab'
   end
 end
